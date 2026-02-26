@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{agent.metaTitle}} | {{agent.serviceArea}} Real Estate Agent</title>
+  <meta name="description" content="{{agent.metaDescription}}">
+  <link rel="canonical" href="{{agent.siteUrl}}/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "{{agent.name}}",
+    "image": "{{agent.photo}}",
+    "url": "{{agent.siteUrl}}",
+    "telephone": "{{agent.phone}}",
+    "email": "{{agent.email}}",
+    "jobTitle": "{{agent.title}}",
+    "worksFor": {
+      "@type": "RealEstateAgent",
+      "name": "{{agent.brokerage}}"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{agent.streetAddress}}",
+      "addressLocality": "{{agent.city}}",
+      "addressRegion": "{{agent.state}}",
+      "postalCode": "{{agent.zip}}",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "{{agent.latitude}}",
+      "longitude": "{{agent.longitude}}"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "{{agent.avgRating}}",
+      "reviewCount": "{{agent.reviewCount}}",
+      "bestRating": "5"
+    },
+    "areaServed": [
+      {{#each agent.serviceAreas}}
+      {"@type": "City", "name": "{{this}}"}{{#unless @last}},{{/unless}}
+      {{/each}}
+    ],
+    "sameAs": [
+      "{{agent.facebook}}",
+      "{{agent.instagram}}",
+      "{{agent.linkedin}}"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">
+        <div>
+          <div class="nav__brand-name">{{agent.name}}</div>
+          <div class="nav__brand-title">{{agent.title}} &middot; {{agent.brokerage}}</div>
+        </div>
+      </a>
+
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="buy.html" class="nav__link">Buy</a>
+        <a href="sell.html" class="nav__link">Sell</a>
+        <a href="neighborhoods.html" class="nav__link">Neighborhoods</a>
+        <a href="about.html" class="nav__link">About</a>
+      </div>
+
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--gold">Contact Me</a>
+      </div>
+
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="nav__mobile-link">Home</a>
+    <a href="buy.html" class="nav__mobile-link">Buy</a>
+    <a href="sell.html" class="nav__mobile-link">Sell</a>
+    <a href="neighborhoods.html" class="nav__mobile-link">Neighborhoods</a>
+    <a href="about.html" class="nav__mobile-link">About</a>
+    <a href="contact.html" class="nav__mobile-link btn btn--primary" style="text-align:center; margin-top: 1rem;">Contact Me</a>
+  </div>
+
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="hero hero--full">
+    <div class="hero__bg">
+      <img src="{{agent.heroImage}}" alt="{{agent.name}} — Real Estate in {{agent.serviceArea}}" loading="eager">
+    </div>
+    <div class="hero__content container">
+      <div class="hero__glass-panel reveal" style="position: relative;">
+        <div style="position: absolute; bottom: var(--space-8); right: var(--space-8); width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 3px solid var(--accent-gold); box-shadow: var(--shadow-lg);">
+          <img src="{{agent.photo}}" alt="{{agent.name}}" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <p class="section-label">{{agent.brokerage}}</p>
+        <h1 style="margin-bottom: var(--space-2);">{{agent.name}} <span style="display: block; font-size: var(--text-lg); font-weight: var(--weight-normal); color: var(--text-secondary); margin-top: var(--space-1);">{{agent.serviceArea}} Real Estate</span></h1>
+        <p style="font-size: var(--text-lg); color: var(--text-secondary); margin-bottom: var(--space-4);">
+          {{agent.title}}
+        </p>
+        <div style="display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-6);">
+          <div class="stars stars--lg" aria-label="{{agent.avgRating}} out of 5 stars">
+            <span aria-hidden="true">&#9733;</span>
+            <span aria-hidden="true">&#9733;</span>
+            <span aria-hidden="true">&#9733;</span>
+            <span aria-hidden="true">&#9733;</span>
+            <span aria-hidden="true">&#9733;</span>
+          </div>
+          <span style="font-size: var(--text-base); color: var(--text-secondary);">{{agent.avgRating}} ({{agent.reviewCount}} reviews)</span>
+        </div>
+        <a href="contact.html" class="btn btn--primary btn--lg" style="display: inline-block;">Let's Talk</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SOCIAL PROOF BAR — Scrolling credentials
+       ============================================================ -->
+  <div class="social-proof" aria-label="Credentials and affiliations">
+    <div class="proof-track">
+      <span>{{agent.brokerage}}</span><span class="proof-divider">&bull;</span>
+      <span>REALTOR&reg;</span><span class="proof-divider">&bull;</span>
+      <span>{{agent.trustBadge1}}</span><span class="proof-divider">&bull;</span>
+      <span>Google &#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="proof-divider">&bull;</span>
+      <span>{{agent.totalVolume}} Career Volume</span><span class="proof-divider">&bull;</span>
+      <span>{{agent.totalTransactions}} Homes Sold</span><span class="proof-divider">&bull;</span>
+      <span>{{agent.yearsExperience}} Years Experience</span><span class="proof-divider">&bull;</span>
+      <span>{{agent.brokerage}}</span><span class="proof-divider">&bull;</span>
+      <span>REALTOR&reg;</span><span class="proof-divider">&bull;</span>
+      <span>{{agent.trustBadge1}}</span><span class="proof-divider">&bull;</span>
+      <span>Google &#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="proof-divider">&bull;</span>
+      <span>{{agent.totalVolume}} Career Volume</span><span class="proof-divider">&bull;</span>
+      <span>{{agent.totalTransactions}} Homes Sold</span><span class="proof-divider">&bull;</span>
+      <span>{{agent.yearsExperience}} Years Experience</span><span class="proof-divider">&bull;</span>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       ABOUT PREVIEW
+       ============================================================ -->
+  <section class="section" id="about-preview">
+    <div class="container">
+      <div class="about-split">
+        <div class="about-split__image reveal reveal--left">
+          <img src="{{agent.photo}}" alt="{{agent.name}}, {{agent.title}}" loading="lazy">
+        </div>
+        <div class="about-split__content reveal reveal--right">
+          <p class="section-label">About Me</p>
+          <h2 class="section-title">Meet {{agent.name}}</h2>
+          <p class="about-split__bio">{{agent.bioExcerpt}}</p>
+          <div class="specialties-pills">
+            <!-- {{#each agent.specialties}} -->
+            <span class="specialty-pill">{{this}}</span>
+            <!-- {{/each}} -->
+          </div>
+          <a href="about.html" class="btn btn--secondary">Read My Full Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FEATURED LISTINGS
+       ============================================================ -->
+  <section class="section" id="featured-listings">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom: var(--space-12);">
+        <p class="section-label">Featured Properties</p>
+        <h2 class="section-title">Handpicked Listings</h2>
+        <p class="section-subtitle centered">Explore some of my current and recently sold properties.</p>
+      </div>
+
+      <div class="featured-scroll reveal-stagger">
+        <!-- {{#each agent.featuredListings}} -->
+        <div class="listing-card reveal">
+          <div class="listing-card__image">
+            <img src="{{this.photos[0]}}" alt="{{this.address}}" loading="lazy">
+            <span class="listing-card__badge listing-card__badge--{{this.status}}">{{this.status}}</span>
+          </div>
+          <div class="listing-card__body">
+            <div class="listing-card__price">{{this.price}}</div>
+            <div class="listing-card__address">{{this.address}}</div>
+            <div class="listing-card__meta">
+              <span>{{this.beds}} Beds</span>
+              <span>{{this.baths}} Baths</span>
+              <span>{{this.sqft}} Sq Ft</span>
+            </div>
+            <a href="property.html?id={{this.id}}" class="listing-card__link">View Details &rarr;</a>
+          </div>
+        </div>
+        <!-- {{/each}} -->
+
+        <!-- SAMPLE CARD 2 (remove when populating with real data) -->
+        <div class="listing-card reveal">
+          <div class="listing-card__image">
+            <img src="{{agent.featuredListings[1].photos[0]}}" alt="{{agent.featuredListings[1].address}}" loading="lazy">
+            <span class="listing-card__badge listing-card__badge--active">Active</span>
+          </div>
+          <div class="listing-card__body">
+            <div class="listing-card__price">{{agent.featuredListings[1].price}}</div>
+            <div class="listing-card__address">{{agent.featuredListings[1].address}}</div>
+            <div class="listing-card__meta">
+              <span>{{agent.featuredListings[1].beds}} Beds</span>
+              <span>{{agent.featuredListings[1].baths}} Baths</span>
+              <span>{{agent.featuredListings[1].sqft}} Sq Ft</span>
+            </div>
+            <a href="property.html?id={{agent.featuredListings[1].id}}" class="listing-card__link">View Details &rarr;</a>
+          </div>
+        </div>
+
+        <!-- SAMPLE CARD 3 -->
+        <div class="listing-card reveal">
+          <div class="listing-card__image">
+            <img src="{{agent.featuredListings[2].photos[0]}}" alt="{{agent.featuredListings[2].address}}" loading="lazy">
+            <span class="listing-card__badge listing-card__badge--sold">Sold</span>
+          </div>
+          <div class="listing-card__body">
+            <div class="listing-card__price">{{agent.featuredListings[2].price}}</div>
+            <div class="listing-card__address">{{agent.featuredListings[2].address}}</div>
+            <div class="listing-card__meta">
+              <span>{{agent.featuredListings[2].beds}} Beds</span>
+              <span>{{agent.featuredListings[2].baths}} Baths</span>
+              <span>{{agent.featuredListings[2].sqft}} Sq Ft</span>
+            </div>
+            <a href="property.html?id={{agent.featuredListings[2].id}}" class="listing-card__link">View Details &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: var(--space-10);">
+        <a href="buy.html#listings" class="btn btn--secondary">View All Listings</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       REVIEWS / TESTIMONIALS CAROUSEL
+       ============================================================ -->
+  <section class="section section--bg" id="reviews">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom: var(--space-12);">
+        <p class="section-label">Client Testimonials</p>
+        <h2 class="section-title">What My Clients Say</h2>
+      </div>
+
+      <div class="review-carousel reveal">
+        <div class="review-carousel__track">
+          <!-- {{#each agent.reviews}} -->
+          <div class="review-carousel__slide">
+            <div class="review-card">
+              <div class="review-card__stars" aria-label="{{this.rating}} out of 5 stars">
+                <!-- Render stars based on {{this.rating}} -->
+                <span class="review-card__star">&#9733;</span>
+                <span class="review-card__star">&#9733;</span>
+                <span class="review-card__star">&#9733;</span>
+                <span class="review-card__star">&#9733;</span>
+                <span class="review-card__star">&#9733;</span>
+              </div>
+              <p class="review-card__comment">{{this.comment}}</p>
+              <div class="review-card__author">
+                <div class="review-card__avatar">{{this.reviewerInitial}}</div>
+                <div>
+                  <div class="review-card__name">{{this.reviewerName}}</div>
+                  <div class="review-card__transaction">{{this.workDescription}}</div>
+                  <div class="review-card__date">{{this.date}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- {{/each}} -->
+        </div>
+
+        <div class="review-carousel__nav">
+          <button class="review-carousel__btn review-carousel__btn--prev" aria-label="Previous review">&#8592;</button>
+          <div class="review-carousel__dots">
+            <!-- Dots built dynamically by JS based on slide count and visible count -->
+          </div>
+          <button class="review-carousel__btn review-carousel__btn--next" aria-label="Next review">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       NEIGHBORHOODS PREVIEW
+       ============================================================ -->
+  <section class="section" id="neighborhoods">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom: var(--space-12);">
+        <p class="section-label">Local Expertise</p>
+        <h2 class="section-title">Neighborhoods I Serve</h2>
+        <p class="section-subtitle centered">Deep local knowledge across {{agent.serviceArea}} and surrounding communities.</p>
+      </div>
+
+      <div class="neighborhood-grid reveal-stagger" style="margin-bottom: var(--space-10);">
+        {{#each agent.neighborhoods}}
+        <a href="neighborhoods/{{this.slug}}.html" class="glass-card glass-card--hover reveal neighborhood-card" style="text-decoration: none; color: inherit; overflow: hidden;">
+          <img src="{{this.image}}" alt="{{this.name}} neighborhood" class="neighborhood-card__img" loading="lazy">
+          <div style="padding: var(--space-5) var(--space-6) var(--space-6);">
+            <h3 style="font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-2);">{{this.name}}</h3>
+            <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-3);">{{this.tagline}}</p>
+            <span style="font-size: var(--text-sm); color: var(--accent-gold); font-weight: var(--weight-semibold);">From {{this.avgPrice}} avg &rarr;</span>
+          </div>
+        </a>
+        {{/each}}
+      </div>
+
+      <div class="text-center">
+        <a href="neighborhoods.html" class="btn btn--secondary">View All Neighborhoods</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       TOOLS TEASER
+       ============================================================ -->
+  <section class="section section--bg" id="tools">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom: var(--space-12);">
+        <p class="section-label">Free Tools</p>
+        <h2 class="section-title">Resources for You</h2>
+        <p class="section-subtitle centered">Whether you're buying or selling, these tools can help you make smarter decisions.</p>
+      </div>
+
+      <div class="tool-cards reveal-stagger">
+        <a href="buy.html" class="tool-card reveal">
+          <div class="tool-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h3 class="tool-card__title">Buy a Home</h3>
+          <p class="tool-card__desc">Estimate your mortgage payment and browse my current property listings.</p>
+        </a>
+        <a href="sell.html" class="tool-card reveal">
+          <div class="tool-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h3 class="tool-card__title">Sell Your Home</h3>
+          <p class="tool-card__desc">Get a free home valuation and calculate your estimated net proceeds.</p>
+        </a>
+        <a href="blog.html" class="tool-card reveal">
+          <div class="tool-card__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <h3 class="tool-card__title">Market Insights</h3>
+          <p class="tool-card__desc">Read the latest market updates, buying guides, and neighborhood spotlights.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SCHEDULE A CONSULTATION
+       ============================================================ -->
+  <section class="section">
+    <div class="container" style="max-width: 680px;">
+      <div class="text-center reveal" style="margin-bottom: var(--space-8);">
+        <p class="section-label">Book a Time</p>
+        <h2 class="section-title">Schedule a Consultation</h2>
+        <p class="section-subtitle centered">Pick a time that works for you and I'll call to discuss your real estate goals. No obligation, no pressure.</p>
+      </div>
+      <div class="glass-card glass-card--static reveal" style="padding: var(--space-8); min-height: 500px;">
+        <!-- Replace the src below with your Calendly (or similar) embed URL -->
+        <iframe
+          src="about:blank"
+          data-scheduling-embed
+          title="Schedule a consultation with {{agent.name}}"
+          style="width: 100%; height: 480px; border: none; border-radius: var(--radius-md);"
+          loading="lazy">
+          Scheduling widget loading...
+        </iframe>
+        <p style="text-align: center; font-size: var(--text-sm); color: var(--text-tertiary); margin-top: var(--space-4);">
+          Select a date and time above to book a free consultation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT CTA
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="glass-card glass-card--static reveal" style="padding: var(--space-12); text-align: center; max-width: 680px; margin: 0 auto;">
+        <p class="section-label">Let's Connect</p>
+        <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-4);">Ready to Make a Move?</h2>
+        <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto var(--space-6); line-height: 1.7;">
+          Whether you're buying your first home, selling a property, or just exploring the market — I'm here to help. Let's talk about your goals.
+        </p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn--primary btn--lg">Get in Touch</a>
+          <a href="tel:{{agent.phone}}" class="btn btn--secondary btn--lg">Call {{agent.phone}}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FLOATING CONTACT BUTTON + MINI FORM
+       ============================================================ -->
+  <div class="floating-cta">
+    <div class="floating-cta__form" role="dialog" aria-label="Quick contact form">
+      <div class="floating-cta__form-header">
+        <span class="floating-cta__form-title">Get in Touch</span>
+        <button class="floating-cta__form-close" aria-label="Close">&times;</button>
+      </div>
+      <form data-validate>
+        <div class="form-group">
+          <input type="text" class="form-input" name="name" placeholder="Your Name" required>
+          <span class="form-error"></span>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-input" name="email" placeholder="Email Address" required>
+          <span class="form-error"></span>
+        </div>
+        <div class="form-group">
+          <input type="tel" class="form-input" name="phone" placeholder="Phone Number">
+          <span class="form-error"></span>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width: 100%;">
+          <span class="btn__text">Send Message</span>
+        </button>
+      </form>
+    </div>
+    <button class="floating-cta__btn" aria-label="Open contact form"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></button>
+  </div>
+
+
+  <!-- ============================================================
+       EXIT INTENT MODAL
+       ============================================================ -->
+  <div id="exit-intent-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Before you leave">
+    <div class="modal" style="position: relative;">
+      <button class="modal__close" aria-label="Close">&times;</button>
+      <div class="modal__photo">
+        <img src="{{agent.photo}}" alt="{{agent.name}}">
+      </div>
+      <h3 class="modal__title">Before You Go...</h3>
+      <p class="modal__subtitle">
+        Stay in the loop! I'll send you new listings, market updates, and tips to help with your real estate journey.
+      </p>
+      <form data-validate style="max-width: 360px; margin: 0 auto;">
+        <div class="form-group">
+          <input type="email" class="form-input" name="email" placeholder="Enter your email" required>
+          <span class="form-error"></span>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width: 100%;">
+          <span class="btn__text">Send Me Listings</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">{{agent.name}}</div>
+          <p class="footer__desc">{{agent.title}} at {{agent.brokerage}}. Helping buyers and sellers navigate real estate with confidence.</p>
+          <div class="footer__social">
+            <a href="{{agent.facebook}}" class="social-link" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="{{agent.instagram}}" class="social-link" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="{{agent.linkedin}}" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__heading">Quick Links</div>
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="buy.html" class="footer__link">Buy</a>
+          <a href="sell.html" class="footer__link">Sell</a>
+          <a href="neighborhoods.html" class="footer__link">Neighborhoods</a>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <div class="footer__heading">Contact</div>
+          <div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {{agent.phone}}</div>
+          <div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> {{agent.email}}</div>
+          <div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> {{agent.address}}</div>
+        </div>
+      </div>
+
+      <p class="footer__disclaimer">{{agent.footerDisclaimer}}</p>
+
+      <div class="footer__bottom">
+        <span>&copy; {{currentYear}} {{agent.name}}. All rights reserved.</span>
+        <span>Powered by Terminus</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

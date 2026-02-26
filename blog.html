@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Insights &amp; Real Estate Blog | {{agent.name}} {{agent.serviceArea}}</title>
+  <meta name="description" content="Stay informed with market updates, buying and selling guides, and neighborhood spotlights from {{agent.name}}, {{agent.serviceArea}} real estate specialist.">
+  <link rel="canonical" href="{{agent.siteUrl}}/blog.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">
+        <div>
+          <div class="nav__brand-name">{{agent.name}}</div>
+          <div class="nav__brand-title">{{agent.title}} &middot; {{agent.brokerage}}</div>
+        </div>
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="buy.html" class="nav__link">Buy</a>
+        <a href="sell.html" class="nav__link">Sell</a>
+        <a href="neighborhoods.html" class="nav__link">Neighborhoods</a>
+        <a href="about.html" class="nav__link">About</a>
+      </div>
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--gold">Contact Me</a>
+      </div>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="nav__mobile-link">Home</a>
+    <a href="buy.html" class="nav__mobile-link">Buy</a>
+    <a href="sell.html" class="nav__mobile-link">Sell</a>
+    <a href="neighborhoods.html" class="nav__mobile-link">Neighborhoods</a>
+    <a href="about.html" class="nav__mobile-link">About</a>
+    <a href="contact.html" class="nav__mobile-link btn btn--primary" style="text-align:center; margin-top: 1rem;">Contact Me</a>
+  </div>
+
+
+  <!-- ============================================================
+       PAGE CONTENT
+       ============================================================ -->
+  <div class="page-content" style="padding-top: var(--nav-height);">
+
+
+    <!-- ============================================================
+         PAGE HEADER
+         ============================================================ -->
+    <section class="section">
+      <div class="container" style="max-width: 800px;">
+        <div class="text-center reveal">
+          <p class="section-label">Market Insights</p>
+          <h1 style="font-size: var(--text-4xl); margin-bottom: var(--space-4);">Real Estate Blog</h1>
+          <p class="section-subtitle centered">Market updates, buying and selling guides, and neighborhood spotlights to help you make smarter real estate decisions.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         BLOG ARTICLES
+         ============================================================ -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container" style="max-width: 800px;">
+        <div class="reveal-stagger" style="display: flex; flex-direction: column; gap: var(--space-8);">
+
+          {{#each agent.blogPosts}}
+          <article class="glass-card glass-card--static reveal" style="padding: var(--space-8);">
+            <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); flex-wrap: wrap;">
+              <span style="font-size: var(--text-xs); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-gold);">{{this.category}}</span>
+              <span style="color: var(--text-tertiary);">&middot;</span>
+              <time style="font-size: var(--text-sm); color: var(--text-tertiary);" datetime="{{this.dateISO}}">{{this.dateFormatted}}</time>
+            </div>
+            <h2 style="font-family: var(--font-display); font-size: var(--text-2xl); margin-bottom: var(--space-4);">{{this.title}}</h2>
+            <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4);">{{this.excerpt}}</p>
+            {{#if this.ctaUrl}}
+            <a href="{{this.ctaUrl}}" class="btn btn--secondary btn--sm">{{this.ctaText}} &rarr;</a>
+            {{/if}}
+          </article>
+          {{/each}}
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         BOTTOM CTA
+         ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="glass-card glass-card--static reveal" style="padding: var(--space-12); text-align: center; max-width: 680px; margin: 0 auto;">
+          <p class="section-label">Stay Informed</p>
+          <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-4);">Get Market Updates Delivered</h2>
+          <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto var(--space-6); line-height: 1.7;">
+            Sign up to receive monthly market reports, new listings, and real estate tips straight to your inbox.
+          </p>
+          <form data-validate style="max-width: 400px; margin: 0 auto; display: flex; gap: var(--space-3); flex-wrap: wrap;">
+            <div class="form-group" style="flex: 1; min-width: 200px; margin-bottom: 0;">
+              <input type="email" class="form-input" name="email" placeholder="Enter your email" required>
+              <span class="form-error"></span>
+            </div>
+            <button type="submit" class="btn btn--primary">
+              <span class="btn__text">Subscribe</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+  </div><!-- /.page-content -->
+
+
+  <!-- ============================================================
+       FLOATING CTA
+       ============================================================ -->
+  <div class="floating-cta">
+    <div class="floating-cta__form" role="dialog" aria-label="Quick contact form">
+      <div class="floating-cta__form-header">
+        <span class="floating-cta__form-title">Get in Touch</span>
+        <button class="floating-cta__form-close" aria-label="Close">&times;</button>
+      </div>
+      <form data-validate>
+        <div class="form-group">
+          <input type="text" class="form-input" name="name" placeholder="Your Name" required>
+          <span class="form-error"></span>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-input" name="email" placeholder="Email Address" required>
+          <span class="form-error"></span>
+        </div>
+        <div class="form-group">
+          <input type="tel" class="form-input" name="phone" placeholder="Phone Number">
+          <span class="form-error"></span>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width: 100%;">
+          <span class="btn__text">Send Message</span>
+        </button>
+      </form>
+    </div>
+    <button class="floating-cta__btn" aria-label="Open contact form"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></button>
+  </div>
+
+
+  <!-- ============================================================
+       EXIT INTENT MODAL
+       ============================================================ -->
+  <div id="exit-intent-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Before you leave">
+    <div class="modal" style="position: relative;">
+      <button class="modal__close" aria-label="Close">&times;</button>
+      <div class="modal__photo">
+        <img src="{{agent.photo}}" alt="{{agent.name}}">
+      </div>
+      <h3 class="modal__title">Before You Go...</h3>
+      <p class="modal__subtitle">Stay in the loop! I'll send you new listings, market updates, and tips to help with your real estate journey.</p>
+      <form data-validate style="max-width: 360px; margin: 0 auto;">
+        <div class="form-group">
+          <input type="email" class="form-input" name="email" placeholder="Enter your email" required>
+          <span class="form-error"></span>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width: 100%;">
+          <span class="btn__text">Send Me Listings</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">{{agent.name}}</div>
+          <p class="footer__desc">{{agent.title}} at {{agent.brokerage}}. Helping buyers and sellers navigate real estate with confidence.</p>
+          <div class="footer__social">
+            <a href="{{agent.facebook}}" class="social-link" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="{{agent.instagram}}" class="social-link" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="{{agent.linkedin}}" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__heading">Quick Links</div>
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="buy.html" class="footer__link">Buy</a>
+          <a href="sell.html" class="footer__link">Sell</a>
+          <a href="neighborhoods.html" class="footer__link">Neighborhoods</a>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <div class="footer__heading">Contact</div>
+          <div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {{agent.phone}}</div>
+          <div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> {{agent.email}}</div>
+          <div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> {{agent.address}}</div>
+        </div>
+      </div>
+
+      <p class="footer__disclaimer">{{agent.footerDisclaimer}}</p>
+
+      <div class="footer__bottom">
+        <span>&copy; {{currentYear}} {{agent.name}}. All rights reserved.</span>
+        <span>Powered by Terminus</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

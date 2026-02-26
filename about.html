@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About {{agent.name}} | {{agent.title}} &middot; {{agent.brokerage}}</title>
+  <meta name="description" content="Learn about {{agent.name}}, {{agent.title}} at {{agent.brokerage}}. {{agent.yearsExperience}}+ years of experience, {{agent.homesSold}}+ homes sold, white-glove service throughout the {{agent.serviceArea}} market.">
+  <link rel="canonical" href="{{agent.siteUrl}}/about.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">
+        <div>
+          <div class="nav__brand-name">{{agent.name}}</div>
+          <div class="nav__brand-title">{{agent.title}} &middot; {{agent.brokerage}}</div>
+        </div>
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="buy.html" class="nav__link">Buy</a>
+        <a href="sell.html" class="nav__link">Sell</a>
+        <a href="neighborhoods.html" class="nav__link">Neighborhoods</a>
+        <a href="about.html" class="nav__link">About</a>
+      </div>
+      <div class="nav__cta">
+        <a href="contact.html" class="btn btn--gold">Contact Me</a>
+      </div>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="nav__mobile-link">Home</a>
+    <a href="buy.html" class="nav__mobile-link">Buy</a>
+    <a href="sell.html" class="nav__mobile-link">Sell</a>
+    <a href="neighborhoods.html" class="nav__mobile-link">Neighborhoods</a>
+    <a href="about.html" class="nav__mobile-link">About</a>
+    <a href="contact.html" class="nav__mobile-link btn btn--primary" style="text-align:center; margin-top: 1rem;">Contact Me</a>
+  </div>
+
+
+  <!-- ============================================================
+       HERO — Full-width cinematic banner
+       ============================================================ -->
+  <section class="hero hero--medium" style="align-items: center;">
+    <div class="hero__bg">
+      <img src="{{agent.aboutHeroImage}}" alt="{{agent.serviceArea}} real estate" loading="eager">
+    </div>
+    <div class="hero__content">
+      <div class="container" style="text-align: center;">
+        <p class="section-label" style="color: var(--accent-gold);">About Me</p>
+        <h1 style="font-family: var(--font-display); font-size: var(--text-5xl); margin-bottom: var(--space-4); color: var(--text-primary);">{{agent.name}}</h1>
+        <p style="font-size: var(--text-xl); color: var(--text-secondary); max-width: 560px; margin: 0 auto var(--space-8); line-height: 1.7;">{{agent.title}} at {{agent.brokerage}} &mdash; {{agent.serviceArea}}</p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn--primary btn--lg">Work With Me</a>
+          <a href="#story" class="btn btn--secondary btn--lg">My Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CAREER STATS — Gold-accented bar
+       ============================================================ -->
+  <section style="padding: var(--space-12) 0; background: linear-gradient(135deg, rgba(184,157,105,0.08) 0%, rgba(184,157,105,0.03) 100%); border-bottom: 1px solid rgba(184,157,105,0.12);">
+    <div class="container">
+      <div class="stats-grid reveal-stagger" style="gap: var(--space-6);">
+        <div class="stat-card reveal" style="text-align: center; padding: var(--space-6); border-left: 3px solid var(--accent-gold);">
+          <div class="stat-card__number" data-count-to="{{agent.homesSold}}" data-count-suffix="+" style="color: var(--accent-gold); font-size: var(--text-4xl);">0</div>
+          <div class="stat-card__label">Homes Sold</div>
+        </div>
+        <div class="stat-card reveal" style="text-align: center; padding: var(--space-6); border-left: 3px solid var(--accent-gold);">
+          <div class="stat-card__number" data-count-to="{{agent.yearsExperience}}" data-count-suffix="+" style="color: var(--accent-gold); font-size: var(--text-4xl);">0</div>
+          <div class="stat-card__label">Years Experience</div>
+        </div>
+        <div class="stat-card reveal" style="text-align: center; padding: var(--space-6); border-left: 3px solid var(--accent-gold);">
+          <div class="stat-card__number" data-count-to="{{agent.volumeSold}}" data-count-prefix="$" data-count-suffix="{{agent.volumeSoldSuffix}}" style="color: var(--accent-gold); font-size: var(--text-4xl);">0</div>
+          <div class="stat-card__label">Total Volume</div>
+        </div>
+        <div class="stat-card reveal" style="text-align: center; padding: var(--space-6); border-left: 3px solid var(--accent-gold);">
+          <div class="stat-card__number" style="color: var(--accent-gold); font-size: var(--text-4xl);">{{agent.avgRating}}</div>
+          <div class="stat-card__label">Google Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       MY STORY — Photo + Bio split
+       ============================================================ -->
+  <section class="section" id="story">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 400px 1fr; gap: var(--space-16); align-items: center;">
+
+        <!-- Photo with decorative frame -->
+        <div class="reveal reveal--left" style="position: relative;">
+          <div style="position: absolute; top: -12px; left: -12px; right: 12px; bottom: 12px; border: 2px solid var(--accent-gold); border-radius: var(--radius-xl); opacity: 0.3;"></div>
+          <img src="{{agent.photo}}" alt="{{agent.name}}" style="width: 100%; border-radius: var(--radius-xl); position: relative; z-index: 1;" loading="eager">
+          <!-- Floating credential badge -->
+          <div style="position: absolute; bottom: -20px; right: -20px; z-index: 2; background: var(--glass-bg); backdrop-filter: var(--glass-backdrop); -webkit-backdrop-filter: var(--glass-backdrop); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5); box-shadow: var(--shadow-glass);">
+            <div style="font-size: var(--text-xs); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em;">Since</div>
+            <div style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: var(--weight-bold); color: var(--accent-gold);">{{agent.careerStartYear}}</div>
+          </div>
+        </div>
+
+        <!-- Bio content -->
+        <div class="reveal reveal--right">
+          <p class="section-label">My Story</p>
+          <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-6);">{{agent.bioHeadline}}</h2>
+          <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-5);">
+            {{agent.bioIntro}}
+          </p>
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-5);">
+            {{agent.bioBody}}
+          </p>
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-8);">
+            {{agent.bioClosing}}
+          </p>
+
+          <!-- Credentials inline -->
+          <div style="display: flex; gap: var(--space-6); flex-wrap: wrap;">
+            {{#each agent.credentials}}
+            <div style="display: flex; align-items: center; gap: var(--space-2);">
+              <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-gold);"></div>
+              <span style="font-size: var(--text-sm); color: var(--text-secondary);">{{this}}</span>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       MY APPROACH — Visual process steps
+       ============================================================ -->
+  <section class="section section--bg" id="approach">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom: var(--space-12);">
+        <p class="section-label">How I Work</p>
+        <h2 class="section-title">My Approach</h2>
+        <p class="section-subtitle centered">{{agent.approachSubtitle}}</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6);" class="reveal-stagger">
+        {{#each agent.approachSteps}}
+        <div class="glass-card glass-card--static reveal" style="padding: var(--space-8); text-align: center; position: relative; overflow: visible;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-gold), #d4af37); color: white; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: var(--text-xl); font-weight: var(--weight-bold); margin: 0 auto var(--space-4);">{{this.number}}</div>
+          <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">{{this.title}}</h3>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6;">{{this.description}}</p>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SPECIALTIES — with descriptions + gold accents
+       ============================================================ -->
+  <section class="section" id="specialties">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom: var(--space-12);">
+        <p class="section-label">Expertise</p>
+        <h2 class="section-title">Areas of Specialization</h2>
+        <p class="section-subtitle centered">{{agent.specialtiesSubtitle}}</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);" class="reveal-stagger">
+        {{#each agent.specialties}}
+        <div class="glass-card glass-card--static reveal" style="padding: var(--space-8); border-top: 3px solid var(--accent-gold);">
+          <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(184,157,105,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-4);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">{{{this.icon}}}</svg>
+          </div>
+          <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">{{this.title}}</h3>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6;">{{this.description}}</p>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       BEYOND REAL ESTATE — Lifestyle grid
+       ============================================================ -->
+  {{#if agent.personalNote}}
+  <section class="section section--bg" id="personal">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center;">
+
+        <!-- Text side -->
+        <div class="reveal reveal--left">
+          <p class="section-label">A Little More About Me</p>
+          <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-6);">Beyond Real Estate</h2>
+          <p style="font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-6);">
+            {{agent.personalNote}}
+          </p>
+          {{#if agent.personalNoteExtra}}
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--space-8);">
+            {{agent.personalNoteExtra}}
+          </p>
+          {{/if}}
+
+          <!-- Languages -->
+          {{#if agent.languages}}
+          <div style="margin-bottom: var(--space-6);">
+            <h4 style="font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: var(--space-3);">Languages Spoken</h4>
+            <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+              {{#each agent.languages}}
+              <span style="padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); background: rgba(184,157,105,0.10); border: 1px solid rgba(184,157,105,0.20); font-size: var(--text-sm); color: var(--accent-gold); font-weight: var(--weight-semibold);">{{this}}</span>
+              {{/each}}
+            </div>
+          </div>
+          {{/if}}
+        </div>
+
+        <!-- Image collage -->
+        {{#if agent.lifestyleImages}}
+        <div class="reveal reveal--right" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; gap: var(--space-4);">
+          {{#each agent.lifestyleImages}}
+          {{#if @first}}
+          <div style="border-radius: var(--radius-lg); overflow: hidden; grid-row: 1 / 3;">
+            <img src="{{this.src}}" alt="{{this.alt}}" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          {{else}}
+          <div style="border-radius: var(--radius-lg); overflow: hidden;">
+            <img src="{{this.src}}" alt="{{this.alt}}" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          {{/if}}
+          {{/each}}
+        </div>
+        {{/if}}
+
+      </div>
+    </div>
+  </section>
+  {{/if}}
+
+
+  <!-- ============================================================
+       REVIEWS — with decorative quote marks
+       ============================================================ -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom: var(--space-12);">
+        <p class="section-label">Client Testimonials</p>
+        <h2 class="section-title">What My Clients Say</h2>
+        <p class="section-subtitle centered">Real stories from real clients across {{agent.serviceArea}}.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-6);" class="reveal-stagger">
+        {{#each agent.reviews}}
+        <div class="glass-card glass-card--static reveal" style="padding: var(--space-8); position: relative;">
+          <div style="font-family: var(--font-display); font-size: 72px; line-height: 1; color: rgba(184,157,105,0.15); position: absolute; top: var(--space-4); left: var(--space-6);">&ldquo;</div>
+          <div style="position: relative; z-index: 1;">
+            <div style="display: flex; gap: 2px; margin-bottom: var(--space-4);">
+              <span style="color: var(--accent-gold); font-size: var(--text-lg);">&#9733;</span>
+              <span style="color: var(--accent-gold); font-size: var(--text-lg);">&#9733;</span>
+              <span style="color: var(--accent-gold); font-size: var(--text-lg);">&#9733;</span>
+              <span style="color: var(--accent-gold); font-size: var(--text-lg);">&#9733;</span>
+              <span style="color: var(--accent-gold); font-size: var(--text-lg);">&#9733;</span>
+            </div>
+            <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6);">{{this.comment}}</p>
+            <div style="display: flex; align-items: center; gap: var(--space-3); padding-top: var(--space-4); border-top: 1px solid var(--glass-border-subtle);">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-gold), #d4af37); color: white; display: flex; align-items: center; justify-content: center; font-weight: var(--weight-bold); font-size: var(--text-sm);">{{this.reviewerInitial}}</div>
+              <div>
+                <div style="font-weight: var(--weight-semibold); font-size: var(--text-sm);">{{this.reviewerName}}</div>
+                <div style="font-size: var(--text-xs); color: var(--text-tertiary);">{{this.workDescription}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       BOTTOM CTA — with background image
+       ============================================================ -->
+  <section class="hero hero--small" style="display: flex; align-items: center; min-height: 50vh;">
+    <div class="hero__bg">
+      <img src="{{agent.ctaBackgroundImage}}" alt="{{agent.serviceArea}} home" loading="lazy">
+    </div>
+    <div class="hero__content" style="width: 100%; padding: var(--space-12) 0;">
+      <div class="container">
+        <div class="glass-card glass-card--static text-center reveal" style="padding: var(--space-12); max-width: 680px; margin: 0 auto;">
+          <p class="section-label">Let's Connect</p>
+          <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-4);">Ready to Get Started?</h2>
+          <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto var(--space-6); line-height: 1.7;">
+            Whether you're buying, selling, or simply exploring your options, I'm here to guide you every step of the way.
+          </p>
+          <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+            <a href="contact.html" class="btn btn--primary btn--lg">Schedule a Consultation</a>
+            <a href="tel:{{agent.phoneRaw}}" class="btn btn--secondary btn--lg">Call {{agent.phone}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FLOATING CTA
+       ============================================================ -->
+  <div class="floating-cta">
+    <div class="floating-cta__form" role="dialog" aria-label="Quick contact form">
+      <div class="floating-cta__form-header">
+        <span class="floating-cta__form-title">Get in Touch</span>
+        <button class="floating-cta__form-close" aria-label="Close">&times;</button>
+      </div>
+      <form data-validate>
+        <div class="form-group">
+          <input type="text" class="form-input" name="name" placeholder="Your Name" required>
+          <span class="form-error"></span>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-input" name="email" placeholder="Email Address" required>
+          <span class="form-error"></span>
+        </div>
+        <div class="form-group">
+          <input type="tel" class="form-input" name="phone" placeholder="Phone Number">
+          <span class="form-error"></span>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width: 100%;">
+          <span class="btn__text">Send Message</span>
+        </button>
+      </form>
+    </div>
+    <button class="floating-cta__btn" aria-label="Open contact form"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></button>
+  </div>
+
+
+  <!-- ============================================================
+       EXIT INTENT MODAL
+       ============================================================ -->
+  <div id="exit-intent-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Before you leave">
+    <div class="modal" style="position: relative;">
+      <button class="modal__close" aria-label="Close">&times;</button>
+      <div class="modal__photo">
+        <img src="{{agent.photo}}" alt="{{agent.name}}">
+      </div>
+      <h3 class="modal__title">Before You Go...</h3>
+      <p class="modal__subtitle">Stay in the loop! I'll send you new listings, market updates, and tips to help with your real estate journey.</p>
+      <form data-validate style="max-width: 360px; margin: 0 auto;">
+        <div class="form-group">
+          <input type="email" class="form-input" name="email" placeholder="Enter your email" required>
+          <span class="form-error"></span>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width: 100%;">
+          <span class="btn__text">Send Me Listings</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">{{agent.name}}</div>
+          <p class="footer__desc">{{agent.title}} at {{agent.brokerage}}. Helping buyers and sellers navigate the {{agent.serviceArea}} market with confidence.</p>
+          <div class="footer__social">
+            <a href="{{agent.facebook}}" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="{{agent.instagram}}" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="{{agent.linkedin}}" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__heading">Quick Links</div>
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="buy.html" class="footer__link">Buy</a>
+          <a href="sell.html" class="footer__link">Sell</a>
+          <a href="neighborhoods.html" class="footer__link">Neighborhoods</a>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <div class="footer__heading">Contact</div>
+          <div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> {{agent.phone}}</div>
+          <div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> {{agent.email}}</div>
+          <div class="footer__contact-item"><svg class="footer__contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> {{agent.address}}</div>
+        </div>
+      </div>
+      <p class="footer__disclaimer">{{agent.footerDisclaimer}}</p>
+      <div class="footer__bottom">
+        <span>&copy; {{currentYear}} {{agent.name}}. All rights reserved.</span>
+        <span>Powered by Terminus</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
