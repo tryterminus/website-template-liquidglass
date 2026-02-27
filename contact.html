@@ -68,8 +68,8 @@
                 <div class="contact-info__photo" style="margin: 0 auto var(--space-4);">
                   <img src="{{agent.photo}}" alt="{{agent.name}}">
                 </div>
-                <h2 class="contact-info__name">{{agent.name}}</h2>
-                <p class="contact-info__title" style="margin-bottom: 0;">{{agent.title}} at {{agent.brokerage}}</p>
+                <div class="contact-info__name">{{agent.name}}</div>
+                <div class="contact-info__title" style="margin-bottom: 0;">{{agent.title}} &middot; {{agent.brokerage}}</div>
               </div>
 
               <div style="border-top: 1px solid var(--glass-border); padding-top: var(--space-5);">
@@ -149,8 +149,8 @@
                   <label class="form-label" for="contact-interest">I'm Interested In</label>
                   <select id="contact-interest" class="form-select" name="interest">
                     <option value="" disabled selected>Select an option&hellip;</option>
-                    <option value="buying">Buying a Home</option>
-                    <option value="selling">Selling My Home</option>
+                    <option value="buying">Buying</option>
+                    <option value="selling">Selling</option>
                     <option value="valuation">Home Valuation</option>
                     <option value="browsing">Just Browsing</option>
                   </select>

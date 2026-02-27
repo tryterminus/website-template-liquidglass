@@ -108,7 +108,8 @@
 
         <!-- Description -->
         <div class="reveal" style="margin-top: var(--space-10);">
-          <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-4);">About This Property</h2>
+          <p class="section-label">About This Property</p>
+          <h2 class="section-title" style="font-size: var(--text-3xl); margin-bottom: var(--space-4);">Property Description</h2>
           <p style="color: var(--text-secondary); line-height: var(--leading-relaxed);">
             {{property.description}}
           </p>
@@ -116,11 +117,12 @@
 
         <!-- Features -->
         <div class="property-features reveal">
-          <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4);">Property Features</h3>
-          <div class="property-features__grid">
+          <p class="section-label">Property Features</p>
+          <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-2);">Highlights &amp; Amenities</h3>
+          <div class="property-features__grid reveal-stagger">
             {{#each property.features}}
-            <div class="property-features__item">
-              <span class="property-features__icon">&#10003;</span>
+            <div class="property-features__item reveal">
+              <span class="property-features__icon" aria-hidden="true">&#9670;</span>
               <span>{{this}}</span>
             </div>
             {{/each}}
@@ -129,7 +131,8 @@
 
         <!-- Map -->
         <div class="reveal" style="margin-top: var(--space-10);">
-          <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4);">Location</h3>
+          <p class="section-label">Location</p>
+          <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-4);">Neighborhood &amp; Map</h3>
           <div class="map-embed">
             {{property.mapEmbed}}
           </div>
@@ -137,8 +140,9 @@
 
         <!-- Similar Listings -->
         <div class="reveal" style="margin-top: var(--space-16);">
-          <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-6);">Similar Properties</h3>
-          <div class="listings-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <p class="section-label">More Properties</p>
+          <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-6);">Similar Listings</h3>
+          <div class="listings-grid reveal-stagger" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
             {{#each property.similarListings}}
             <div class="listing-card">
               <div class="listing-card__image">
@@ -162,42 +166,52 @@
       </div>
 
       <!-- Sidebar -->
-      <div class="property-sidebar">
+      <aside class="property-sidebar" aria-label="Agent contact and showing request">
         <!-- Agent Mini Card -->
         <div class="glass-card glass-card--static agent-mini-card reveal">
           <div class="agent-mini-card__photo">
-            <img src="{{agent.photo}}" alt="{{agent.name}}">
+            <img src="{{agent.photo}}" alt="{{agent.name}}" loading="lazy">
           </div>
           <div class="agent-mini-card__name">{{agent.name}}</div>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-3);">{{agent.title}} &middot; {{agent.brokerage}}</p>
           <div class="agent-mini-card__contact">
-            <a href="tel:{{agent.phone}}">{{agent.phone}}</a>
-            <a href="mailto:{{agent.email}}">{{agent.email}}</a>
+            <a href="tel:{{agent.phoneRaw}}">&#9742; {{agent.phone}}</a>
+            <a href="mailto:{{agent.email}}">&#9993; {{agent.email}}</a>
           </div>
+          <a href="contact.html" class="btn btn--secondary" style="width: 100%;">Send a Message</a>
+        </div>
 
-          <!-- Schedule a Showing Form -->
-          <h4 style="font-size: var(--text-base); margin-bottom: var(--space-4);">Schedule a Showing</h4>
+        <!-- Schedule a Showing Form -->
+        <div class="glass-card glass-card--static reveal" style="padding: var(--space-8); margin-top: var(--space-6);">
+          <h3 style="font-family: var(--font-display); font-size: var(--text-xl); margin-bottom: var(--space-2);">Schedule a Showing</h3>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-6);">Interested in touring this property? Fill out the form and I'll be in touch within 24 hours.</p>
           <form data-validate>
             <div class="form-group">
-              <input type="text" class="form-input" name="name" placeholder="Your Name" required>
+              <label class="form-label" for="showing-name">Full Name</label>
+              <input type="text" id="showing-name" class="form-input" name="name" placeholder="Jane Smith" required autocomplete="name">
               <span class="form-error"></span>
             </div>
             <div class="form-group">
-              <input type="email" class="form-input" name="email" placeholder="Email" required>
+              <label class="form-label" for="showing-email">Email Address</label>
+              <input type="email" id="showing-email" class="form-input" name="email" placeholder="jane@example.com" required autocomplete="email">
               <span class="form-error"></span>
             </div>
             <div class="form-group">
-              <input type="tel" class="form-input" name="phone" placeholder="Phone" required>
+              <label class="form-label" for="showing-phone">Phone Number</label>
+              <input type="tel" id="showing-phone" class="form-input" name="phone" placeholder="(555) 123-4567" autocomplete="tel">
               <span class="form-error"></span>
             </div>
             <div class="form-group">
-              <textarea class="form-textarea" name="message" placeholder="I'd like to schedule a showing for this property..." rows="3"></textarea>
+              <label class="form-label" for="showing-message">Message (optional)</label>
+              <textarea id="showing-message" class="form-input" name="message" placeholder="Preferred showing days or times, questions about the property..." rows="4" style="resize: vertical;"></textarea>
+              <span class="form-error"></span>
             </div>
             <button type="submit" class="btn btn--primary" style="width: 100%;">
-              <span class="btn__text">Request Showing</span>
+              <span class="btn__text">Request a Showing</span>
             </button>
           </form>
         </div>
-      </div>
+      </aside>
     </div>
   </div>
 
