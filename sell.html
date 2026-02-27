@@ -27,7 +27,7 @@
       <div class="nav__links">
         <a href="index.html" class="nav__link">Home</a>
         <a href="buy.html" class="nav__link">Buy</a>
-        <a href="sell.html" class="nav__link">Sell</a>
+        <a href="sell.html" class="nav__link active">Sell</a>
         <a href="neighborhoods.html" class="nav__link">Neighborhoods</a>
         <a href="about.html" class="nav__link">About</a>
       </div>
@@ -50,219 +50,161 @@
 
 
   <!-- ============================================================
-       PAGE HEADER
+       HERO — VALUATION LEAD CAPTURE
        ============================================================ -->
-  <div class="page-content">
-    <div class="container">
-      <div class="page-header reveal">
-        <p class="section-label">Sellers</p>
-        <h1 class="page-header__title">Sell Your Home</h1>
-        <p class="page-header__subtitle">Find out what your home is worth and estimate your net proceeds from the sale.</p>
-      </div>
+  <section class="hero hero--medium" style="align-items: flex-end;">
+    <div class="hero__bg">
+      <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1600&q=80" alt="Luxury home exterior" loading="eager">
     </div>
-  </div>
+    <div class="hero__content" style="padding-bottom: var(--space-16);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 420px; gap: var(--space-12); align-items: end;">
 
-
-  <!-- ============================================================
-       SECTION A — HOME VALUATION
-       ============================================================ -->
-  <section class="tool-section">
-    <div class="container" style="max-width: 640px;">
-      <div class="text-center reveal" style="margin-bottom: var(--space-10);">
-        <p class="section-label">Free Tool</p>
-        <h2 class="section-title">What's Your Home Worth?</h2>
-        <p class="section-subtitle centered" style="max-width: 560px;">
-          Get an instant estimate of your property's current market value. Enter your home details below.
-        </p>
-      </div>
-
-      <div id="valuation-form" class="step-form">
-        <!-- Progress bar -->
-        <div class="step-form__progress reveal">
-          <div class="step-form__progress-dot active"></div>
-          <div class="step-form__progress-dot"></div>
-          <div class="step-form__progress-dot"></div>
-        </div>
-
-        <!-- Step 1: Property Details -->
-        <div class="step-form__step active">
-          <div class="glass-card glass-card--static reveal" style="padding: var(--space-8);">
-            <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-6);">Property Details</h3>
-
-            <div class="form-group">
-              <label class="form-label" for="val-address">Property Address</label>
-              <input type="text" id="val-address" class="form-input" placeholder="123 Main St, City, State">
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
-              <div class="form-group">
-                <label class="form-label" for="val-beds">Bedrooms</label>
-                <select id="val-beds" class="form-select">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3" selected>3</option>
-                  <option value="4">4</option>
-                  <option value="5">5+</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="val-baths">Bathrooms</label>
-                <select id="val-baths" class="form-select">
-                  <option value="1">1</option>
-                  <option value="2" selected>2</option>
-                  <option value="3">3</option>
-                  <option value="4">4+</option>
-                </select>
-              </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
-              <div class="form-group">
-                <label class="form-label" for="val-sqft">Square Footage</label>
-                <input type="number" id="val-sqft" class="form-input" placeholder="1,500" value="1500">
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="val-year">Year Built</label>
-                <input type="number" id="val-year" class="form-input" placeholder="1990" value="1990">
-              </div>
-            </div>
-
-            <div class="step-form__nav">
-              <span></span>
-              <button class="btn btn--primary step-form__next">Next Step &rarr;</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 2: Condition & Upgrades -->
-        <div class="step-form__step">
-          <div class="glass-card glass-card--static" style="padding: var(--space-8);">
-            <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-6);">Condition & Upgrades</h3>
-
-            <div class="form-group">
-              <label class="form-label">Overall Condition</label>
-              <input type="hidden" name="condition" value="good">
-              <div class="condition-cards">
-                <div class="condition-card" data-value="excellent">
-                  <div style="font-size: 24px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-                  <div class="condition-card__label">Excellent</div>
-                </div>
-                <div class="condition-card selected" data-value="good">
-                  <div style="font-size: 24px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></div>
-                  <div class="condition-card__label">Good</div>
-                </div>
-                <div class="condition-card" data-value="fair">
-                  <div style="font-size: 24px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-                  <div class="condition-card__label">Fair</div>
-                </div>
-                <div class="condition-card" data-value="needs-work">
-                  <div style="font-size: 24px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-                  <div class="condition-card__label">Needs Work</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Recent Upgrades (select all that apply)</label>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2);">
-                <label class="form-check">
-                  <input type="checkbox" name="upgrades" value="kitchen">
-                  Kitchen Renovation
-                </label>
-                <label class="form-check">
-                  <input type="checkbox" name="upgrades" value="bathroom">
-                  Bathroom Remodel
-                </label>
-                <label class="form-check">
-                  <input type="checkbox" name="upgrades" value="roof">
-                  New Roof
-                </label>
-                <label class="form-check">
-                  <input type="checkbox" name="upgrades" value="hvac">
-                  New HVAC
-                </label>
-                <label class="form-check">
-                  <input type="checkbox" name="upgrades" value="flooring">
-                  New Flooring
-                </label>
-                <label class="form-check">
-                  <input type="checkbox" name="upgrades" value="windows">
-                  New Windows
-                </label>
-                <label class="form-check">
-                  <input type="checkbox" name="upgrades" value="landscaping">
-                  Landscaping
-                </label>
-                <label class="form-check">
-                  <input type="checkbox" name="upgrades" value="pool">
-                  Pool/Spa
-                </label>
-              </div>
-            </div>
-
-            <div class="step-form__nav">
-              <button class="btn btn--ghost step-form__prev">&larr; Back</button>
-              <button class="btn btn--primary step-form__next">Get My Estimate &rarr;</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 3: Email Gate + Result -->
-        <div class="step-form__step">
-          <!-- Email Gate -->
-          <div id="email-gate" class="glass-card glass-card--static" style="padding: var(--space-8);">
-            <div class="email-gate">
-              <div style="font-size: 40px; margin-bottom: var(--space-4);"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-              <h3 class="email-gate__title">Your Estimate is Ready!</h3>
-              <p class="email-gate__subtitle">Enter your name and email to view your personalized home valuation report.</p>
-              <form id="email-gate-form">
-                <div class="email-gate__fields">
-                  <input type="text" class="form-input" name="name" placeholder="Your Name" required>
-                  <input type="email" class="form-input" name="email" placeholder="Email Address" required>
-                  <button type="submit" class="btn btn--primary">View Report</button>
-                </div>
-              </form>
+          <!-- Left: Headline + Trust -->
+          <div>
+            <p class="section-label" style="color: var(--accent-gold);">Free Home Valuation</p>
+            <h1 style="font-family: var(--font-display); font-size: var(--text-5xl); margin-bottom: var(--space-4); color: var(--text-primary);">What's Your Home Worth?</h1>
+            <p style="font-size: var(--text-lg); color: var(--text-secondary); max-width: 480px; line-height: 1.7; margin-bottom: var(--space-6);">
+              Get an instant estimate backed by real market data. I've helped {{agent.totalSold}}+ homeowners sell for top dollar in {{agent.serviceArea}}.
+            </p>
+            <div style="display: flex; gap: var(--space-6); font-size: 0.85rem; color: var(--text-secondary); flex-wrap: wrap;">
+              <span>&#9733; {{agent.googleRating}}/5 on Google</span>
+              <span>&#10003; {{agent.totalVolume}} Sold</span>
+              <span>&#10003; {{agent.yearsExperience}} Years Experience</span>
             </div>
           </div>
 
-          <!-- Valuation Result (hidden until email submitted) -->
-          <div id="valuation-result" class="glass-card glass-card--static" style="padding: var(--space-10); display: none;">
-            <div class="text-center">
-              <p class="section-label">Estimated Market Value</p>
-              <h2 style="margin-bottom: var(--space-2);">Your Home's Value</h2>
-              <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-4); margin: var(--space-8) 0;">
-                <div>
-                  <div style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-1);">Low Estimate</div>
-                  <div id="result-low" style="font-family: var(--font-display); font-size: var(--text-3xl); font-weight: var(--weight-bold); color: var(--accent);">$0</div>
+          <!-- Right: Valuation Form -->
+          <div id="valuation-form" class="step-form">
+            <div class="step-form__progress" style="margin-bottom: var(--space-4);">
+              <div class="step-form__progress-dot active"></div>
+              <div class="step-form__progress-dot"></div>
+              <div class="step-form__progress-dot"></div>
+            </div>
+
+            <!-- Step 1: Property Details -->
+            <div class="step-form__step active">
+              <div class="glass-card glass-card--static" style="padding: var(--space-6);">
+                <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4);">Property Details</h3>
+                <div class="form-group">
+                  <label class="form-label" for="val-address">Property Address</label>
+                  <input type="text" id="val-address" class="form-input" placeholder="123 Main St, City, State">
                 </div>
-                <div style="font-size: var(--text-2xl); color: var(--text-tertiary);">&mdash;</div>
-                <div>
-                  <div style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-1);">High Estimate</div>
-                  <div id="result-high" style="font-family: var(--font-display); font-size: var(--text-3xl); font-weight: var(--weight-bold); color: var(--accent);">$0</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
+                  <div class="form-group">
+                    <label class="form-label" for="val-beds">Beds</label>
+                    <select id="val-beds" class="form-select">
+                      <option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5+</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="val-baths">Baths</label>
+                    <select id="val-baths" class="form-select">
+                      <option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4+</option>
+                    </select>
+                  </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
+                  <div class="form-group">
+                    <label class="form-label" for="val-sqft">Sq Ft</label>
+                    <input type="number" id="val-sqft" class="form-input" placeholder="1,500" value="1500">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="val-year">Year Built</label>
+                    <input type="number" id="val-year" class="form-input" placeholder="1990" value="1990">
+                  </div>
+                </div>
+                <div class="step-form__nav" style="margin-top: var(--space-4);">
+                  <span></span>
+                  <button class="btn btn--primary step-form__next" style="width: 100%;">Get My Estimate &rarr;</button>
                 </div>
               </div>
-              <p style="color: var(--text-secondary); font-size: var(--text-sm); max-width: 460px; margin: 0 auto var(--space-8); line-height: var(--leading-relaxed);">
-                This is a preliminary estimate based on the information you provided. For a precise market analysis tailored to your property, get in touch with me directly.
-              </p>
-              <a href="contact.html" class="btn btn--primary btn--lg">Get a Precise Valuation from {{agent.name}}</a>
+            </div>
+
+            <!-- Step 2: Condition & Upgrades -->
+            <div class="step-form__step">
+              <div class="glass-card glass-card--static" style="padding: var(--space-6);">
+                <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4);">Condition & Upgrades</h3>
+                <div class="form-group">
+                  <label class="form-label">Overall Condition</label>
+                  <input type="hidden" name="condition" value="good">
+                  <div class="condition-cards">
+                    <div class="condition-card" data-value="excellent"><div style="color: var(--accent-gold);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="condition-card__label">Excellent</div></div>
+                    <div class="condition-card selected" data-value="good"><div style="color: var(--accent-gold);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></div><div class="condition-card__label">Good</div></div>
+                    <div class="condition-card" data-value="fair"><div style="color: var(--accent-gold);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><div class="condition-card__label">Fair</div></div>
+                    <div class="condition-card" data-value="needs-work"><div style="color: var(--accent-gold);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="condition-card__label">Needs Work</div></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Recent Upgrades</label>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2);">
+                    <label class="form-check"><input type="checkbox" name="upgrades" value="kitchen"> Kitchen</label>
+                    <label class="form-check"><input type="checkbox" name="upgrades" value="bathroom"> Bathroom</label>
+                    <label class="form-check"><input type="checkbox" name="upgrades" value="roof"> Roof</label>
+                    <label class="form-check"><input type="checkbox" name="upgrades" value="hvac"> HVAC</label>
+                    <label class="form-check"><input type="checkbox" name="upgrades" value="flooring"> Flooring</label>
+                    <label class="form-check"><input type="checkbox" name="upgrades" value="pool"> Pool/Spa</label>
+                  </div>
+                </div>
+                <div class="step-form__nav">
+                  <button class="btn btn--ghost step-form__prev">&larr; Back</button>
+                  <button class="btn btn--primary step-form__next">Next &rarr;</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Email Gate + Result -->
+            <div class="step-form__step">
+              <div id="email-gate" class="glass-card glass-card--static" style="padding: var(--space-6);">
+                <div class="email-gate">
+                  <div style="color: var(--accent-gold); margin-bottom: var(--space-3);"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                  <h3 class="email-gate__title">Your Estimate is Ready!</h3>
+                  <p class="email-gate__subtitle">Enter your info to see your personalized valuation.</p>
+                  <form id="email-gate-form">
+                    <div class="email-gate__fields">
+                      <input type="text" class="form-input" name="name" placeholder="Your Name" required>
+                      <input type="email" class="form-input" name="email" placeholder="Email Address" required>
+                      <button type="submit" class="btn btn--primary" style="width: 100%;">View My Report</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <div id="valuation-result" class="glass-card glass-card--static" style="padding: var(--space-6); display: none;">
+                <div class="text-center">
+                  <p class="section-label">Estimated Value</p>
+                  <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-3); margin: var(--space-4) 0;">
+                    <div>
+                      <div style="font-size: var(--text-xs); color: var(--text-secondary);">Low</div>
+                      <div id="result-low" style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: var(--weight-bold); color: var(--accent);">$0</div>
+                    </div>
+                    <div style="font-size: var(--text-xl); color: var(--text-tertiary);">&mdash;</div>
+                    <div>
+                      <div style="font-size: var(--text-xs); color: var(--text-secondary);">High</div>
+                      <div id="result-high" style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: var(--weight-bold); color: var(--accent);">$0</div>
+                    </div>
+                  </div>
+                  <a href="contact.html" class="btn btn--primary" style="width: 100%;">Get a Precise Valuation</a>
+                </div>
+              </div>
+
+              <div class="step-form__nav" style="margin-top: var(--space-3);">
+                <button class="btn btn--ghost step-form__prev">&larr; Back</button>
+                <span></span>
+              </div>
             </div>
           </div>
 
-          <div class="step-form__nav" style="margin-top: var(--space-4);">
-            <button class="btn btn--ghost step-form__prev">&larr; Back</button>
-            <span></span>
-          </div>
         </div>
       </div>
-
     </div>
   </section>
 
 
   <!-- ============================================================
-       SECTION B — NET PROCEEDS CALCULATOR
+       NET PROCEEDS CALCULATOR
        ============================================================ -->
-  <section class="section section--bg" id="proceeds">
+  <section class="section" id="proceeds">
     <div class="container" style="max-width: 1040px;">
       <div class="text-center reveal" style="margin-bottom: var(--space-12);">
         <p class="section-label">Seller Tool</p>
@@ -387,26 +329,6 @@
 
 
   <!-- ============================================================
-       BOTTOM CTA
-       ============================================================ -->
-  <section class="section">
-    <div class="container">
-      <div class="glass-card glass-card--static reveal" style="padding: var(--space-12); text-align: center; max-width: 680px; margin: 0 auto;">
-        <p class="section-label">Ready to Sell?</p>
-        <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-4);">Let's Get You Top Dollar</h2>
-        <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto var(--space-6); line-height: 1.7;">
-          I've helped {{agent.homesSold}}+ homeowners sell in {{agent.serviceArea}}. Get a personalized strategy session — no pressure, just expertise.
-        </p>
-        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
-          <a href="contact.html" class="btn btn--primary btn--lg">Schedule a Consultation</a>
-          <a href="tel:{{agent.phoneRaw}}" class="btn btn--secondary btn--lg">Call {{agent.phone}}</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
        RECENTLY SOLD
        ============================================================ -->
   <section class="section section--bg" id="sold">
@@ -436,6 +358,30 @@
             <div style="font-size: var(--text-xs); color: var(--text-tertiary); margin-top: var(--space-2);">{{this.soldDetails}}</div>
             {{/if}}
           </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SELLING PROCESS
+       ============================================================ -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom: var(--space-12);">
+        <p class="section-label">How It Works</p>
+        <h2 class="section-title">The Selling Process</h2>
+        <p class="section-subtitle centered" style="max-width: 560px;">From listing to closing, here's what to expect when you sell with me.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6);" class="reveal-stagger">
+        {{#each agent.sellingProcess}}
+        <div class="glass-card glass-card--static reveal" style="padding: var(--space-8); text-align: center; position: relative; overflow: visible;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-gold), #d4af37); color: white; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: var(--text-xl); font-weight: var(--weight-bold); margin: 0 auto var(--space-4);">{{this.number}}</div>
+          <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">{{this.title}}</h3>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6;">{{this.description}}</p>
         </div>
         {{/each}}
       </div>
@@ -512,6 +458,26 @@
               Staging involves arranging furniture and decor to showcase your home's best features. Studies consistently show that staged homes sell faster and for higher prices — often 1-5% more. I work with professional stagers and can advise on whether full staging, partial staging, or virtual staging makes sense for your property.
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       BOTTOM CTA
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="glass-card glass-card--static reveal" style="padding: var(--space-12); text-align: center; max-width: 680px; margin: 0 auto;">
+        <p class="section-label">Ready to Sell?</p>
+        <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-4);">Let's Get You Top Dollar</h2>
+        <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto var(--space-6); line-height: 1.7;">
+          I've helped {{agent.totalSold}}+ homeowners sell in {{agent.serviceArea}}. Get a personalized strategy session — no pressure, just expertise.
+        </p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn--primary btn--lg">Schedule a Consultation</a>
+          <a href="tel:{{agent.phoneRaw}}" class="btn btn--secondary btn--lg">Call {{agent.phone}}</a>
         </div>
       </div>
     </div>

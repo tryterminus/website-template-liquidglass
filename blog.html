@@ -88,8 +88,16 @@
             </div>
             <h2 style="font-family: var(--font-display); font-size: var(--text-2xl); margin-bottom: var(--space-4);">{{this.title}}</h2>
             <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4);">{{this.excerpt}}</p>
+            {{#if this.body}}
+            <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-6);">{{this.body}}</p>
+            {{/if}}
             {{#if this.ctaUrl}}
-            <a href="{{this.ctaUrl}}" class="btn btn--secondary btn--sm">{{this.ctaText}} &rarr;</a>
+            <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+              <a href="{{this.ctaUrl}}" class="btn btn--secondary btn--sm">{{this.ctaText}} &rarr;</a>
+              {{#if this.ctaUrl2}}
+              <a href="{{this.ctaUrl2}}" class="btn btn--secondary btn--sm" style="background: transparent;">{{this.ctaText2}} &rarr;</a>
+              {{/if}}
+            </div>
             {{/if}}
           </article>
           {{/each}}

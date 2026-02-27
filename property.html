@@ -52,31 +52,23 @@
   <!-- ============================================================
        PROPERTY GALLERY
        ============================================================ -->
-  <div style="padding-top: var(--nav-height);">
-    <div class="property-gallery">
-      <img src="{{property.photos[0]}}" alt="{{property.address}} — Main photo" id="gallery-main">
-      <div class="property-gallery__thumbs">
-        <!-- {{#each property.photos}} -->
-        <div class="property-gallery__thumb {{#if @first}}active{{/if}}">
-          <img src="{{this}}" data-full="{{this}}" alt="{{../property.address}} — Photo {{@index}}" loading="lazy">
+  <section class="property-hero" style="padding-top: var(--nav-height);">
+    <div class="property-gallery" id="property-gallery">
+      <img
+        id="gallery-main-img"
+        src="{{property.photos[0]}}"
+        alt="{{property.address}} — Main photo"
+        loading="eager">
+
+      <div class="property-gallery__thumbs" role="list" aria-label="Property photos">
+        {{#each property.photos}}
+        <div class="property-gallery__thumb {{#if @first}}active{{/if}}" role="listitem" tabindex="0" data-src="{{this}}" data-alt="{{../property.address}} — Photo {{@index}}" aria-label="View photo {{math @index '+' 1}}">
+          <img src="{{this}}" alt="" loading="lazy">
         </div>
-        <!-- {{/each}} -->
-        <!-- Sample thumbnails -->
-        <div class="property-gallery__thumb active">
-          <img src="{{property.photos[0]}}" data-full="{{property.photos[0]}}" alt="{{property.address}} — Photo 1">
-        </div>
-        <div class="property-gallery__thumb">
-          <img src="{{property.photos[1]}}" data-full="{{property.photos[1]}}" alt="{{property.address}} — Photo 2">
-        </div>
-        <div class="property-gallery__thumb">
-          <img src="{{property.photos[2]}}" data-full="{{property.photos[2]}}" alt="{{property.address}} — Photo 3">
-        </div>
-        <div class="property-gallery__thumb">
-          <img src="{{property.photos[3]}}" data-full="{{property.photos[3]}}" alt="{{property.address}} — Photo 4">
-        </div>
+        {{/each}}
       </div>
     </div>
-  </div>
+  </section>
 
 
   <!-- ============================================================
@@ -86,7 +78,7 @@
     <div class="property-layout">
 
       <!-- Main Content -->
-      <div>
+      <div class="property-main">
         <!-- Info Panel -->
         <div class="glass-card glass-card--static property-info-panel reveal">
           <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
@@ -126,37 +118,12 @@
         <div class="property-features reveal">
           <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-4);">Property Features</h3>
           <div class="property-features__grid">
-            <!-- {{#each property.features}} -->
+            {{#each property.features}}
             <div class="property-features__item">
               <span class="property-features__icon">&#10003;</span>
               <span>{{this}}</span>
             </div>
-            <!-- {{/each}} -->
-            <!-- Sample features -->
-            <div class="property-features__item">
-              <span class="property-features__icon">&#10003;</span>
-              <span>{{property.features[0]}}</span>
-            </div>
-            <div class="property-features__item">
-              <span class="property-features__icon">&#10003;</span>
-              <span>{{property.features[1]}}</span>
-            </div>
-            <div class="property-features__item">
-              <span class="property-features__icon">&#10003;</span>
-              <span>{{property.features[2]}}</span>
-            </div>
-            <div class="property-features__item">
-              <span class="property-features__icon">&#10003;</span>
-              <span>{{property.features[3]}}</span>
-            </div>
-            <div class="property-features__item">
-              <span class="property-features__icon">&#10003;</span>
-              <span>{{property.features[4]}}</span>
-            </div>
-            <div class="property-features__item">
-              <span class="property-features__icon">&#10003;</span>
-              <span>{{property.features[5]}}</span>
-            </div>
+            {{/each}}
           </div>
         </div>
 
@@ -172,7 +139,7 @@
         <div class="reveal" style="margin-top: var(--space-16);">
           <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-6);">Similar Properties</h3>
           <div class="listings-grid" style="grid-template-columns: repeat(3, 1fr);">
-            <!-- {{#each property.similarListings}} -->
+            {{#each property.similarListings}}
             <div class="listing-card">
               <div class="listing-card__image">
                 <img src="{{this.photos[0]}}" alt="{{this.address}}" loading="lazy">
@@ -189,7 +156,7 @@
                 <a href="property.html?id={{this.id}}" class="listing-card__link">View Details &rarr;</a>
               </div>
             </div>
-            <!-- {{/each}} -->
+            {{/each}}
           </div>
         </div>
       </div>
